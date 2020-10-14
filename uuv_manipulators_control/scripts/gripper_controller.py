@@ -13,6 +13,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+from __future__ import print_function
+
 import os
 import rospy
 from uuv_manipulator_interfaces import GripperInterface
@@ -138,9 +141,9 @@ class GripperController:
                 self._ratio_goal = 0.0
             if self._ratio_goal > 1:
                 self._ratio_goal = 1.0
-        except Exception, e:
-            print 'Error occurred while parsing joystick input, check if the joy_id corresponds to the joystick ' \
-                  'being used. message=%s' % str(e)
+        except Exception as e:
+            print('Error occurred while parsing joystick input, check if the joy_id corresponds to the joystick ' \
+                  'being used. message={}'.format(e))
 
 
 if __name__ == '__main__':

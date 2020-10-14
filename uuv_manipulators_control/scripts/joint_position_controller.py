@@ -13,6 +13,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+from __future__ import print_function
+
 import os
 import rospy
 from copy import deepcopy
@@ -132,8 +135,8 @@ class JointPositionController:
                         # Check for the joint limits
                         self._reference_pos[joint] = self._check_joint_limits(self._reference_pos[joint], joint)
                 self._last_joy_update = rospy.get_time()
-        except Exception, e:
-            print 'Error during joy parsing, message=', e
+        except Exception as e:
+            print('Error during joy parsing, message={}'.format(e))
 
 if __name__ == '__main__':
     # Start the node
